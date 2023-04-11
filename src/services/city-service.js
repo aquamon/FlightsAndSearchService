@@ -48,9 +48,21 @@ class CityService {
         }
     }
 
-    async  getAllCities() {
+    // async  getAllCities() {
+    //     try {
+    //         const cities = await this.cityRepository.getAllCities();
+    //         return cities;
+    //     } catch (error) {
+    //         console.log("Not able to fetch the cities : ServiceLayer");
+    //         throw {error};
+    //     }
+    // }
+
+    async  getAllCities(filter) {
         try {
-            const cities = await this.cityRepository.getAllCities();
+            const cities = await this.cityRepository.getAllCities({name : filter.name});
+            //this passing only name as filter can be later done in the 
+            //middleware
             return cities;
         } catch (error) {
             console.log("Not able to fetch the cities : ServiceLayer");

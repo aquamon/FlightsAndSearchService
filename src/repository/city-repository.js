@@ -1,6 +1,5 @@
 const { City } = require('../models/index');
 const { Op } = require('sequelize');
-const { QueryTypes } = require('sequelize');
 
 class CityRepository{
 
@@ -71,8 +70,33 @@ class CityRepository{
         }
     }
 
-    async getAllCities(){
+    // async getAllCities(){
+    //     try{
+    //         const cities = await City.findAll();
+    //         return cities;
+    //     }catch(error){
+    //         console.log(error);
+    //         console.log("Something went wrong in the repository layer");
+    //         throw {error};
+    //     }
+    // }
+
+    //This above code gives us the list of all the Cities in the DB.
+    //now if there are thousands of data, its not good to flood the user
+    //with all of these data at once.
+
+    async getAllCities(filter){
         try{
+            if(filter.name){
+                const cities = await City.findAll({
+                   where : {
+                    name : {
+                        [Op.startsWith] : filter.name
+                    }
+                   }     
+                });
+                return cities;
+            }
             const cities = await City.findAll();
             return cities;
         }catch(error){

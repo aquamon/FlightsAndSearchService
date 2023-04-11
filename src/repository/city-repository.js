@@ -1,5 +1,6 @@
 const { City } = require('../models/index');
 const { Op } = require('sequelize');
+const { QueryTypes } = require('sequelize');
 
 class CityRepository{
 
@@ -52,9 +53,29 @@ class CityRepository{
 
     async getCity(cityId) {
         try {
+
+            // const city = await sequelize.query(
+            //     'SELECT * FROM cities WHERE status = :cityId',
+            //     {
+            //       replacements: { cityId: 'active' },
+            //       type: QueryTypes.SELECT
+            //     }
+            //   );
+
             const city = await City.findByPk(cityId);
             return city;
         } catch (error) {
+            console.log("Something went wrong in the repository layer");
+            throw {error};
+        }
+    }
+
+    async getAllCities(){
+        try{
+            const cities = await City.findAll();
+            return cities;
+        }catch(error){
+            console.log(error);
             console.log("Something went wrong in the repository layer");
             throw {error};
         }

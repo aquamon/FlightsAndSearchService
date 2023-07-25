@@ -1,5 +1,9 @@
 # Welcome to Flights Service
 
+## This project uses the Microsevice Architecture
+- There are different microservices implemented for each of the Business Tasks.
+- API Gateway has been implemented here : [https://github.com/aquamon/API_Gateway](https://github.com/aquamon/API_Gateway)
+
 ## Project Setup
 - clone the project on your local
 - execute `npm install` on the same path as of your root directory.

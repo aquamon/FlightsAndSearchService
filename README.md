@@ -3,6 +3,9 @@
 ## This project uses the Microsevice Architecture
 - There are different microservices implemented for each of the Business Tasks.
 - API Gateway has been implemented here : [https://github.com/aquamon/API_Gateway](https://github.com/aquamon/API_Gateway)
+- Authentication Service has been implemented here : [https://github.com/aquamon/Auth_Service](https://github.com/aquamon/Auth_Service)
+- Booking Service to create a booking has been implemented here : [https://github.com/aquamon/BookingService](https://github.com/aquamon/BookingService)
+- Reminder Service which reminds the user regarding the upcoming journey has been implemented here : [https://github.com/aquamon/ReminderService](https://github.com/aquamon/ReminderService)
 
 ## Project Setup
 - clone the project on your local
